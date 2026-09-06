@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online DSY1104</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header>
+    <div class="contenedor encabezado">
+      <h1>EcoMarket</h1>
+
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <button id="btn-carrito" class="btn-carrito">
+        Carrito (<span id="contador-carrito">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="contenedor">
+        <h2>Bienvenido a EcoMarket</h2>
+        <p>Una tienda online de ejemplo desarrollada con HTML, CSS y JavaScript.</p>
+        <a href="#productos" class="boton">Ver productos</a>
+      </div>
+    </section>
+
+    <section id="productos" class="seccion contenedor">
+      <h2>Productos</h2>
+      <p>Los productos se generan dinámicamente desde JavaScript.</p>
+      <div id="grilla-productos" class="grilla-productos"></div>
+    </section>
+
+    <section id="login" class="seccion seccion-gris">
+      <div class="contenedor formulario-contenedor">
+        <h2>Inicio de sesión</h2>
+
+        <form id="form-login" novalidate>
+          <div class="campo">
+            <label for="correo-login">Correo electrónico</label>
+            <input
+              type="email"
+              id="correo-login"
+              maxlength="100"
+              placeholder="nombre@duoc.cl"
+            >
+            <small id="error-correo-login" class="error"></small>
+          </div>
+
+          <div class="campo">
+            <label for="password-login">Contraseña</label>
+            <input
+              type="password"
+              id="password-login"
+              maxlength="10"
+              placeholder="Entre 4 y 10 caracteres"
+            >
+            <small id="error-password-login" class="error"></small>
+          </div>
+
+          <button type="submit" class="boton">Ingresar</button>
+          <p id="mensaje-login" class="mensaje"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion contenedor">
+      <div class="formulario-contenedor">
+        <h2>Contacto</h2>
+
+        <form id="form-contacto" novalidate>
+          <div class="campo">
+            <label for="nombre-contacto">Nombre</label>
+            <input
+              type="text"
+              id="nombre-contacto"
+              maxlength="100"
+              placeholder="Ingrese su nombre"
+            >
+            <small id="error-nombre-contacto" class="error"></small>
+          </div>
+
+          <div class="campo">
+            <label for="correo-contacto">Correo electrónico</label>
+            <input
+              type="email"
+              id="correo-contacto"
+              maxlength="100"
+              placeholder="nombre@gmail.com"
+            >
+            <small id="error-correo-contacto" class="error"></small>
+          </div>
+
+          <div class="campo">
+            <label for="comentario-contacto">Comentario</label>
+            <textarea
+              id="comentario-contacto"
+              maxlength="500"
+              rows="5"
+              placeholder="Escriba su mensaje"
+            ></textarea>
+            <small id="error-comentario-contacto" class="error"></small>
+          </div>
+
+          <button type="submit" class="boton">Enviar mensaje</button>
+          <p id="mensaje-contacto" class="mensaje"></p>
+        </form>
+      </div>
+    </section>
+
+    <aside id="panel-carrito" class="panel-carrito oculto" aria-label="Carrito de compras">
+      <div class="panel-cabecera">
+        <h2>Mi carrito</h2>
+        <button id="cerrar-carrito" class="btn-cerrar" aria-label="Cerrar carrito">×</button>
+      </div>
+
+      <div id="lista-carrito"></div>
+
+      <div class="resumen-carrito">
+        <strong>Total: $<span id="total-carrito">0</span></strong>
+        <button id="vaciar-carrito" class="boton boton-secundario">Vaciar carrito</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p>EcoMarket · Desarrollo Fullstack I · DSY1104</p>
+      <p>Ejemplo académico con HTML, CSS y JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
