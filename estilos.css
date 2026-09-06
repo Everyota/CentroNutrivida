@@ -29,7 +29,7 @@ body {
    ========================= */
 
 header {
-  background: #163020;
+  background: #7eb4c9;
   color: white;
   position: sticky;
   top: 0;
@@ -72,7 +72,7 @@ nav a:hover {
 
 .btn-carrito {
   background: white;
-  color: #163020;
+  color: #7eb4c9;
   padding: 10px 14px;
   border-radius: 8px;
   font-weight: bold;
@@ -162,7 +162,7 @@ nav a:hover {
 .boton {
   display: inline-block;
   border: none;
-  background: #236b3d;
+  background: #73c08f;
   color: white;
   text-decoration: none;
   padding: 11px 18px;
@@ -210,7 +210,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-  outline: 2px solid #236b3d;
+  outline: 2px solid #73c08f;
   border-color: transparent;
 }
 
@@ -287,7 +287,7 @@ textarea:focus {
    ========================= */
 
 footer {
-  background: #163020;
+  background: #7eb4c9;
   color: white;
   text-align: center;
   padding: 30px 0;
