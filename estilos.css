@@ -200,7 +200,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 12px;
   border: 1px solid #bbbbbb;
@@ -280,6 +281,9 @@ textarea:focus {
 .resumen-carrito {
   padding-top: 20px;
   font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* =========================

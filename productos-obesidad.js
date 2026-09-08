@@ -5,7 +5,7 @@ const productos = [
     nombre: "Teleconsulta nutricional",
     descripcion: "Consulta de seguimiento vía videollamada. Requiere contar con consulta presencial previa.",
     precio: 20000,
-    imagen: "https://www.goredforwomen.org/es/-/media/AHA/H4GM/Article-Images/Lose-Weight-and-Keep-It-Off.jpg?h=683&iar=0&mw=1910&w=1024&sc_lang=es"
+    imagen: "assets/img/1.png"
   },
   {
     id: 2,
@@ -47,32 +47,37 @@ function mostrarProductos() {
   });
 }
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let servicioAgendamiento = JSON.parse(localStorage.getItem("servicioAgendamiento")) || null;
 
 const panelCarrito = document.getElementById("panel-carrito");
 const btnCarrito = document.getElementById("btn-carrito");
 const cerrarCarrito = document.getElementById("cerrar-carrito");
 const listaCarrito = document.getElementById("lista-carrito");
 const contadorCarrito = document.getElementById("contador-carrito");
-const totalCarrito = document.getElementById("total-carrito");
 const vaciarCarrito = document.getElementById("vaciar-carrito");
+const confirmarAgendamiento = document.getElementById("confirmar-agendamiento");
+// Elementos del formulario
+const nombresPaciente = document.getElementById("nombres-paciente");
+const errorNombresPaciente = document.getElementById("error-nombres-paciente");
+const apellidosPaciente = document.getElementById("apellidos-paciente");
+const errorApellidosPaciente = document.getElementById("error-apellidos-paciente");
+const correo = document.getElementById("email-paciente");
+const errorCorreoLogin = document.getElementById("error-email-paciente");
 
 function guardarCarrito() {
-  localStorage.setItem("carrito", JSON.stringify(carrito));
+  if (servicioAgendamiento) {
+    localStorage.setItem("servicioAgendamiento", JSON.stringify(servicioAgendamiento));
+  }
+  else {
+    localStorage.removeItem("servicioAgendamiento");
+  }
 }
 
 function agregarAlCarrito(idProducto) {
   const producto = productos.find((p) => p.id === idProducto);
 
-  const productoExistente = carrito.find((p) => p.id === idProducto);
-
-  if (productoExistente) {
-    productoExistente.cantidad++;
-  } else {
-    carrito.push({
-      ...producto,
-      cantidad: 1
-    });
+  if (producto.id !== servicioAgendamiento?.id) {
+    servicioAgendamiento = producto;
   }
 
   guardarCarrito();
@@ -81,7 +86,7 @@ function agregarAlCarrito(idProducto) {
 }
 
 function eliminarDelCarrito(idProducto) {
-  carrito = carrito.filter((p) => p.id !== idProducto);
+  servicioAgendamiento = null;
 
   guardarCarrito();
   actualizarCarrito();
@@ -90,51 +95,81 @@ function eliminarDelCarrito(idProducto) {
 function actualizarCarrito() {
   listaCarrito.innerHTML = "";
 
-  if (carrito.length === 0) {
-    listaCarrito.innerHTML = "<p>El carrito está vacío.</p>";
-  }
-
-  carrito.forEach((producto) => {
+  if (servicioAgendamiento) {
+    btnCarrito.disabled = false;
     const item = document.createElement("div");
     item.classList.add("item-carrito");
 
     item.innerHTML = `
       <div>
-        <strong>${producto.nombre}</strong>
-        <p>Cantidad: ${producto.cantidad}</p>
+        <strong>${servicioAgendamiento.nombre}</strong>
         <p>
-          Subtotal:
-          $${(producto.precio * producto.cantidad).toLocaleString("es-CL")}
+          Valor:
+          $${(servicioAgendamiento.precio).toLocaleString("es-CL")}
         </p>
       </div>
-
-      <button data-id="${producto.id}">
-        Eliminar
-      </button>
     `;
 
     listaCarrito.appendChild(item);
-  });
+    contadorCarrito.textContent = 1;
+  }
+  else {
+    btnCarrito.disabled = true;
+  }
+}
 
-  document.querySelectorAll(".item-carrito button").forEach((boton) => {
-    boton.addEventListener("click", () => {
-      eliminarDelCarrito(Number(boton.dataset.id));
-    });
-  });
+const manejarVaciarCarrito = () => {
+  servicioAgendamiento = null;
+  guardarCarrito();
+  actualizarCarrito();
+  panelCarrito.classList.add("oculto");
+  contadorCarrito.textContent = 0;
+}
 
-  const cantidadTotal = carrito.reduce(
-    (acumulador, producto) => acumulador + producto.cantidad,
-    0
-  );
+// Validaciones
 
-  const montoTotal = carrito.reduce(
-    (acumulador, producto) =>
-      acumulador + producto.precio * producto.cantidad,
-    0
-  );
+const validarNoEstaVacio = (texto, mensajeError) => {
+  if (texto.trim() === "") {
+    return mensajeError;
+  }
+  return "";
+}
 
-  contadorCarrito.textContent = cantidadTotal;
-  totalCarrito.textContent = montoTotal.toLocaleString("es-CL");
+const patronCorreo =
+  /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
+
+function validarCorreo(correo) {
+  if (correo.trim() === "") {
+    return "El correo es obligatorio.";
+  }
+
+  if (correo.length > 100) {
+    return "El correo no puede superar los 100 caracteres.";
+  }
+
+  if (!patronCorreo.test(correo)) {
+    return "Use un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
+  }
+
+  return "";
+}
+
+function validarNombres() {
+  const error = validarNoEstaVacio(nombresPaciente.value, "Los nombres son obligatorios.");
+  errorNombresPaciente.textContent = error;
+  return error === "";
+}
+
+function validarApellidos() {
+  const error = validarNoEstaVacio(apellidosPaciente.value, "Los apellidos son obligatorios.");
+  errorApellidosPaciente.textContent = error;
+  return error === "";
+}
+
+function validarCorreoFormulario() {
+  const error = validarCorreo(correo.value);
+  errorCorreoLogin.textContent = error;
+  return error === "";
 }
 
 btnCarrito.addEventListener("click", () => {
@@ -146,10 +181,32 @@ cerrarCarrito.addEventListener("click", () => {
 });
 
 vaciarCarrito.addEventListener("click", () => {
-  carrito = [];
-  guardarCarrito();
-  actualizarCarrito();
+  manejarVaciarCarrito();
 });
+
+nombresPaciente.addEventListener("input", validarNombres);
+apellidosPaciente.addEventListener("input", validarApellidos);
+correo.addEventListener("input", validarCorreoFormulario);
+
+confirmarAgendamiento.addEventListener("click", () => {
+  //Validaciones de los campos del formulario
+  let formularioValido = true;
+  if (validarNombres() === false) {
+    formularioValido = false;
+  }
+  if (!validarApellidos()) {
+    formularioValido = false;
+  }
+  if (validarCorreoFormulario() === false) {
+    formularioValido = false;
+  }
+  
+  if (formularioValido) {
+    // Si todo es válido, se puede proceder a confirmar el agendamiento
+    alert("Cita agendada con éxito para el servicio: " + servicioAgendamiento.nombre);
+    manejarVaciarCarrito();
+  }
+})
 
 mostrarProductos();
 actualizarCarrito();

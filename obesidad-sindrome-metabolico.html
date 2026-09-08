@@ -40,15 +40,122 @@
 
     <aside id="panel-carrito" class="panel-carrito oculto" aria-label="Carrito de compras">
       <div class="panel-cabecera">
-        <h2>Mi carrito</h2>
+        <h2>Agendar cita</h2>
         <button id="cerrar-carrito" class="btn-cerrar" aria-label="Cerrar carrito">×</button>
       </div>
 
       <div id="lista-carrito"></div>
 
+      <form id="form-agendamiento" class="form-agendamiento" novalidate>
+        <h5>Datos paciente</h5>
+        <div class="campo">
+          <label for="rut-paciente">RUT</label>
+          <input
+            type="text"
+            id="rut-paciente"
+            maxlength="100"
+            placeholder="12.345.678-9"
+          >
+          <small id="error-rut-paciente" class="error"></small>
+        </div>
+        <div class="campo">
+          <label for="nombres-paciente">Nombres</label>
+          <input
+            type="text"
+            id="nombres-paciente"
+            maxlength="100"
+            placeholder="Federico Alberto"
+          >
+          <small id="error-nombres-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="apellidos-paciente">Apellidos</label>
+          <input
+            type="text"
+            id="apellidos-paciente"
+            maxlength="100"
+            placeholder="Gómez Pérez"
+          >
+          <small id="error-apellidos-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="email-paciente">Correo electrónico</label>
+          <input
+            type="email"
+            id="email-paciente"
+            maxlength="100"
+            placeholder="nombre@duoc.cl"
+          >
+          <small id="error-email-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="celular-paciente">Celular</label>
+          <input
+            type="phone"
+            id="celular-paciente"
+            maxlength="100"
+            placeholder="987654321"
+          >
+          <small id="error-celular-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="prevision-paciente">Previsión</label>
+          <select
+            id="prevision-paciente"
+          >
+            <option value="">Seleccionar previsión</option>
+            <option value="Fonasa">Fonasa</option>
+            <option value="Isapre">Isapre</option>
+            <option value="Particular">Particular</option>
+          </select>
+          <small id="error-prevision-paciente" class="error"></small>
+        </div>
+
+        <h5>Datos cita</h5>
+        <div class="campo">
+          <label for="dia-cita">Día de atención</label>
+          <input
+            type="date"
+            id="dia-cita"
+          >
+          <small id="error-date-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="hora-cita">Hora de atención</label>
+          <select
+            id="hora-cita"
+          >
+            <option value="">Seleccionar hora</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="15:00">03:00 PM</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="profesional-cita">Profesional</label>
+          <select
+            id="profesional-cita"
+          >
+            <option value="">Seleccionar profesional</option>
+            <option value="Nut. Carolina Fuentes M.">Nut. Carolina Fuentes M.</option>
+            <option value="Nut. Rodrigo Sepúlveda A.">Nut. Rodrigo Sepúlveda A.</option>
+            <option value="Nut. Daniela Morales C.">Nut. Daniela Morales C.</option>
+            <option value="Nut. Felipe Araya R.">Nut. Felipe Araya R.</option>
+          </select>
+        </div>
+      </form>
+
       <div class="resumen-carrito">
-        <strong>Total: $<span id="total-carrito">0</span></strong>
-        <button id="vaciar-carrito" class="boton boton-secundario">Vaciar carrito</button>
+        <button id="vaciar-carrito" class="boton boton-secundario">Cancelar</button>
+        <button id="confirmar-agendamiento" class="boton">Confirmar</button>
       </div>
     </aside>
   </main>
