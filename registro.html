@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - EcoMarket</title>
+  <title>Registro - Nutrivida</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
   <header>
     <div class="contenedor encabezado">
-      <h1>EcoMarket</h1>
+      <img src="assets/img/logo.png" width= "150" alt="Logo NutriVida"> 
 
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="#productos">Productos</a></li>
-          <li><a href="#login">Login</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+           <li><a href="index.html">Inicio</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="registro.html">Registro</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
 
@@ -30,34 +30,87 @@
   <main>
     <section id="login" class="seccion seccion-gris">
       <div class="contenedor formulario-contenedor">
-        <h2>Inicio de sesión</h2>
+        <h2>Registro</h2>
 
-        <form id="form-login" novalidate>
-          <div class="campo">
-            <label for="correo-login">Correo electrónico</label>
-            <input
-              type="email"
-              id="correo-login"
-              maxlength="100"
-              placeholder="nombre@duoc.cl"
-            >
-            <small id="error-correo-login" class="error"></small>
-          </div>
+          <form id="form-agendamiento" class="form-agendamiento" novalidate>
+        <div class="campo">
+          <label for="rut-paciente">RUT</label>
+          <input
+            type="text"
+            id="rut-paciente"
+            maxlength="100"
+            placeholder="12.345.678-9"
+          >
+          <small id="error-rut-paciente" class="error"></small>
+        </div>
+        <div class="campo">
+          <label for="nombres-paciente">Nombres</label>
+          <input
+            type="text"
+            id="nombres-paciente"
+            maxlength="100"
+            placeholder="Federico Alberto"
+          >
+          <small id="error-nombres-paciente" class="error"></small>
+        </div>
 
-          <div class="campo">
-            <label for="password-login">Contraseña</label>
-            <input
-              type="password"
-              id="password-login"
-              maxlength="10"
-              placeholder="Entre 4 y 10 caracteres"
-            >
-            <small id="error-password-login" class="error"></small>
-          </div>
+        <div class="campo">
+          <label for="apellidos-paciente">Apellidos</label>
+          <input
+            type="text"
+            id="apellidos-paciente"
+            maxlength="100"
+            placeholder="Gómez Pérez"
+          >
+          <small id="error-apellidos-paciente" class="error"></small>
+        </div>
 
-          <button type="submit" class="boton">Ingresar</button>
-          <p id="mensaje-login" class="mensaje"></p>
-        </form>
+        <div class="campo">
+          <label for="email-paciente">Correo electrónico</label>
+          <input
+            type="email"
+            id="email-paciente"
+            maxlength="100"
+            placeholder="nombre@duoc.cl"
+          >
+          <small id="error-email-paciente" class="error"></small>
+        </div>
+    <div class="campo">
+          <label for="email-paciente">Contraseña</label>
+          <input
+            type="password"
+            id="email-paciente"
+            maxlength="100"
+            placeholder="**********"
+          >
+          <small id="error-email-paciente" class="error"></small>
+        </div>
+        <div class="campo">
+          <label for="celular-paciente">Celular</label>
+          <input
+            type="phone"
+            id="celular-paciente"
+            maxlength="100"
+            placeholder="987654321"
+          >
+          <small id="error-celular-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="prevision-paciente">Previsión</label>
+          <select
+            id="prevision-paciente"
+          >
+            <option value="">Seleccionar previsión</option>
+            <option value="Fonasa">Fonasa</option>
+            <option value="Isapre">Isapre</option>
+            <option value="Particular">Particular</option>
+          </select>
+          <small id="error-prevision-paciente" class="error"></small>
+        </div>
+
+      
+      </form>
       </div>
     </section>
 
