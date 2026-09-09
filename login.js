@@ -11,7 +11,7 @@ const errorPasswordLogin = document.getElementById("error-password-login");
 const mensajeLogin = document.getElementById("mensaje-login");
 
 const patronCorreo =
-  /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
+  /^[^\s@]+@(outlook\.com|gmail\.com)$/i;
 
 function validarCorreo(correo) {
   if (correo.trim() === "") {
@@ -23,7 +23,7 @@ function validarCorreo(correo) {
   }
 
   if (!patronCorreo.test(correo)) {
-    return "Use un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
+    return "Use un correo @outlook.com o @gmail.com.";
   }
 
   return "";
@@ -63,10 +63,12 @@ formLogin.addEventListener("submit", (event) => {
   const passwordValido = validarPasswordLogin();
 
   if (correoValido && passwordValido) {
-    mensajeLogin.textContent = "Inicio de sesión validado correctamente.";
-    formLogin.reset();
-    errorCorreoLogin.textContent = "";
-    errorPasswordLogin.textContent = "";
+
+    // Agregamos el usuario al localStorage
+    localStorage.setItem("usuario", correoLogin.value)
+    window.location.href = "index.html";
+
+
   } else {
     mensajeLogin.textContent =
       "Revise los campos marcados antes de continuar.";

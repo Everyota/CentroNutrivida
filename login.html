@@ -21,6 +21,8 @@
         </ul>
       </nav>
 
+      <p id="usuario-actual"></p>
+
       <button id="btn-carrito" class="btn-carrito">
         Carrito (<span id="contador-carrito">0</span>)
       </button>
@@ -39,7 +41,7 @@
               type="email"
               id="correo-login"
               maxlength="100"
-              placeholder="nombre@duoc.cl"
+              placeholder="nombre@gmail.com"
             >
             <small id="error-correo-login" class="error"></small>
           </div>
@@ -84,5 +86,6 @@
   </footer>
 
   <script src="login.js"></script>
+  <script src="cargarUsuario.js"></script>
 </body>
 </html>

@@ -32,7 +32,7 @@ function mostrarProductos() {
         <p class="precio">$${producto.precio.toLocaleString("es-CL")}</p>
         <p>${producto.descripcion}</p>
         <button class="boton" data-id="${producto.id}">
-          Añadir al carrito
+          Agendar
         </button>
       </div>
     `;
@@ -183,6 +183,8 @@ cerrarCarrito.addEventListener("click", () => {
 vaciarCarrito.addEventListener("click", () => {
   manejarVaciarCarrito();
 });
+// Obtenemos el usuario del localStorage
+const usuarioLog = localStorage.getItem("usuario");
 
 nombresPaciente.addEventListener("input", validarNombres);
 apellidosPaciente.addEventListener("input", validarApellidos);
@@ -191,7 +193,9 @@ correo.addEventListener("input", validarCorreoFormulario);
 confirmarAgendamiento.addEventListener("click", () => {
   //Validaciones de los campos del formulario
   let formularioValido = true;
-  if (validarNombres() === false) {
+  debugger;
+  if(usuarioLog === null){
+    if (validarNombres() === false) {
     formularioValido = false;
   }
   if (!validarApellidos()) {
@@ -199,14 +203,21 @@ confirmarAgendamiento.addEventListener("click", () => {
   }
   if (validarCorreoFormulario() === false) {
     formularioValido = false;
-  }
-  
+  } 
+}
   if (formularioValido) {
     // Si todo es válido, se puede proceder a confirmar el agendamiento
     alert("Cita agendada con éxito para el servicio: " + servicioAgendamiento.nombre);
     manejarVaciarCarrito();
   }
+
 })
+
+
+if (usuarioLog) {
+    // Si hay usuario, ocultamos el formulario de datos de paciente
+    document.getElementById("datos-paciente").innerHTML = `<p>Hora agendada para ${usuarioLog}</p>`;
+}
 
 mostrarProductos();
 actualizarCarrito();

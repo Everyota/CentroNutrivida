@@ -10,17 +10,20 @@
 <body>
 
   <header>
+    
     <div class="contenedor encabezado">
-      <h1>NutriVida</h1>
+       <img src="assets/img/logo.png" width= "150" alt="Logo NutriVida"> 
 
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#productos">Productos</a></li>
+         <li><a href="index.html">Inicio</a></li>
           <li><a href="login.html">Login</a></li>
+          <li><a href="registro.html">Registro</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
+      
+      <p id="usuario-actual"></p>
 
       <button id="btn-carrito" class="btn-carrito">
         Carrito (<span id="contador-carrito">0</span>)
@@ -47,7 +50,8 @@
       <div id="lista-carrito"></div>
 
       <form id="form-agendamiento" class="form-agendamiento" novalidate>
-        <h5>Datos paciente</h5>
+        <div id="datos-paciente">
+          <h5>Datos paciente</h5>
         <div class="campo">
           <label for="rut-paciente">RUT</label>
           <input
@@ -114,6 +118,8 @@
           </select>
           <small id="error-prevision-paciente" class="error"></small>
         </div>
+        </div>
+        
 
         <h5>Datos cita</h5>
         <div class="campo">
@@ -168,5 +174,6 @@
   </footer>
 
   <script src="productos-obesidad.js"></script>
+  <script src="cargarUsuario.js"></script>
 </body>
 </html>
