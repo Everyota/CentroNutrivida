@@ -2,39 +2,25 @@
 const productos = [
     {
     id: 1,
-    nombre: "Primera consulta nutricional",
-    descripcion: "Evaluación inicial: anamnesis, antropometría completa y diseño del primer plan alimenticio [50 min].",
-    precio: 35000,
+    nombre: "Plan nutrición deportiva",
+    descripcion: "Para deportistas y personas con actividad física frecuente. Cálculo de requerimientos energéticos y proteicos.",
+    precio: 70000,
     imagen: "assets/img/1.png"
   },
   {
      
     id: 2,
-    nombre: "Control nutricional (seguimiento)",
-    descripcion: "Seguimiento mensual: medición de indicadores y ajuste del plan vigente [30 min].",
-    precio: 25000,
+    nombre: "Antropometría completa",
+    descripcion: "Peso, talla, IMC, circunferencia de cintura, cadera, brazo y % de grasa corporal con bioimpedanciometría.",
+    precio: 18000,
     imagen: "assets/img/2.png"
   },
   {
     id: 3,
-    nombre: "Control nutricional quincenal",
-    descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
-    precio: 22000,
+    nombre: "Taller nutrición para deportistas",
+    descripcion: "Hidratación, nutrición pre y post entrenamiento, suplementación básica. Máx. 12 personas.",
+    precio: 18000,
     imagen: "assets/img/3.png"
-  },
-   {
-    id: 4,
-    nombre: "Teleconsulta nutricional",
-    descripcion: "Consulta de seguimiento vía videollamada. Requiere contar con consulta presencial previa [30 min].",
-    precio: 20000,
-    imagen: "assets/img/4.png"
-  },
-    {
-    id: 5,
-    nombre: "Consulta de urgencia / reagendada",
-    descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
-    precio: 28000,
-    imagen: "assets/img/5.png"
   }
 ];
 
