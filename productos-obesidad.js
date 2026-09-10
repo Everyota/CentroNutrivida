@@ -2,18 +2,41 @@
 const productos = [
   {
     id: 1,
-    nombre: "Teleconsulta nutricional",
-    descripcion: "Consulta de seguimiento vía videollamada. Requiere contar con consulta presencial previa.",
-    precio: 20000,
+    nombre: "Primera consulta nutricional",
+    descripcion: "Evaluación inicial: anamnesis, antropometría completa y diseño del primer plan alimenticio [50 min].",
+    precio: 35000,
     imagen: "assets/img/1.png"
   },
   {
+     
     id: 2,
-    nombre: "Consulta de urgencia / reagendada",
-    descripcion: "Para pacientes que requieren atención fuera de su control habitual.",
-    precio: 28000,
-    imagen: "https://www.goredforwomen.org/es/-/media/AHA/H4GM/Article-Images/Lose-Weight-and-Keep-It-Off.jpg?h=683&iar=0&mw=1910&w=1024&sc_lang=es"
+    nombre: "Control nutricional (seguimiento)",
+    descripcion: "Seguimiento mensual: medición de indicadores y ajuste del plan vigente [30 min].",
+    precio: 25000,
+    imagen: "assets/img/2.png"
   },
+  {
+    id: 3,
+    nombre: "Control nutricional quincenal",
+    descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
+    precio: 22000,
+    imagen: "assets/img/3.png"
+  },
+   {
+    id: 4,
+    nombre: "Teleconsulta nutricional",
+    descripcion: "Consulta de seguimiento vía videollamada. Requiere contar con consulta presencial previa [30 min].",
+    precio: 20000,
+    imagen: "assets/img/4.png"
+  },
+    {
+    id: 5,
+    nombre: "Consulta de urgencia / reagendada",
+    descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
+    precio: 28000,
+    imagen: "assets/img/5.png"
+  }
+  
 ];
 
 const grillaProductos = document.getElementById("grilla-productos");
