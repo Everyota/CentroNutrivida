@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta Nutrivida</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header>
+    
+    <div class="contenedor encabezado">
+       <img src="assets/img/logo.png" width= "150" alt="Logo NutriVida"> 
+
+      <nav aria-label="Navegación principal">
+        <ul>
+         <li><a href="index.html">Inicio</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="registro.html">Registro</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      
+      <p id="usuario-actual"></p>
+
+      <button id="btn-carrito" class="btn-carrito">
+        Carrito (<span id="contador-carrito">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="productos" class="seccion contenedor">
+      <h2>Servicios</h2>
+      <p>Tenemos atenciones según tus necesidades</p>
+      <div id="grilla-productos" class="grilla-productos"></div>
+    </section>
+
+
+
+    <aside id="panel-carrito" class="panel-carrito oculto" aria-label="Carrito de compras">
+      <div class="panel-cabecera">
+        <h2>Agendar cita</h2>
+        <button id="cerrar-carrito" class="btn-cerrar" aria-label="Cerrar carrito">×</button>
+      </div>
+
+      <div id="lista-carrito"></div>
+
+      <form id="form-agendamiento" class="form-agendamiento" novalidate>
+        <div id="datos-paciente">
+          <h5>Datos paciente</h5>
+        <div class="campo">
+          <label for="rut-paciente">RUT</label>
+          <input
+            type="text"
+            id="rut-paciente"
+            maxlength="100"
+            placeholder="12.345.678-9"
+          >
+          <small id="error-rut-paciente" class="error"></small>
+        </div>
+        <div class="campo">
+          <label for="nombres-paciente">Nombres</label>
+          <input
+            type="text"
+            id="nombres-paciente"
+            maxlength="100"
+            placeholder="Federico Alberto"
+          >
+          <small id="error-nombres-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="apellidos-paciente">Apellidos</label>
+          <input
+            type="text"
+            id="apellidos-paciente"
+            maxlength="100"
+            placeholder="Gómez Pérez"
+          >
+          <small id="error-apellidos-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="email-paciente">Correo electrónico</label>
+          <input
+            type="email"
+            id="email-paciente"
+            maxlength="100"
+            placeholder="nombre@duoc.cl"
+          >
+          <small id="error-email-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="celular-paciente">Celular</label>
+          <input
+            type="phone"
+            id="celular-paciente"
+            maxlength="100"
+            placeholder="987654321"
+          >
+          <small id="error-celular-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="prevision-paciente">Previsión</label>
+          <select
+            id="prevision-paciente"
+          >
+            <option value="">Seleccionar previsión</option>
+            <option value="Fonasa">Fonasa</option>
+            <option value="Isapre">Isapre</option>
+            <option value="Particular">Particular</option>
+          </select>
+          <small id="error-prevision-paciente" class="error"></small>
+        </div>
+        </div>
+        
+
+        <h5>Datos cita</h5>
+        <div class="campo">
+          <label for="dia-cita">Día de atención</label>
+          <input
+            type="date"
+            id="dia-cita"
+          >
+          <small id="error-date-paciente" class="error"></small>
+        </div>
+
+        <div class="campo">
+          <label for="hora-cita">Hora de atención</label>
+          <select
+            id="hora-cita"
+          >
+            <option value="">Seleccionar hora</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="15:00">03:00 PM</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="profesional-cita">Profesional</label>
+          <select
+            id="profesional-cita"
+          >
+            <option value="">Seleccionar profesional</option>
+            <option value="Nut. Carolina Fuentes M.">Nut. Carolina Fuentes M.</option>
+            <option value="Nut. Rodrigo Sepúlveda A.">Nut. Rodrigo Sepúlveda A.</option>
+            <option value="Nut. Daniela Morales C.">Nut. Daniela Morales C.</option>
+            <option value="Nut. Felipe Araya R.">Nut. Felipe Araya R.</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="resumen-carrito">
+        <button id="vaciar-carrito" class="boton boton-secundario">Cancelar</button>
+        <button id="confirmar-agendamiento" class="boton">Confirmar</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p>Nutrivida · Calle Alberto Alfaro 3412, Las condes· 2020</p>
+      <p>Instagram nutrivida.cl.</p>
+    </div>
+  </footer>
+
+  <script src="productos-pediatrica.js"></script>
+  <script src="cargarUsuario.js"></script>
+</body>
+</html>

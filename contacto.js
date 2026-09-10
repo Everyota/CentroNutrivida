@@ -8,6 +8,24 @@ const formContacto = document.getElementById("form-contacto");
 const nombreContacto = document.getElementById("nombre-contacto");
 const correoContacto = document.getElementById("correo-contacto");
 const comentarioContacto = document.getElementById("comentario-contacto");
+const patronCorreo =
+  /^[^\s@]+@(outlook\.com|gmail\.com)$/i;
+
+function validarCorreo(correo) {
+  if (correo.trim() === "") {
+    return "El correo es obligatorio.";
+  }
+
+  if (correo.length > 100) {
+    return "El correo no puede superar los 100 caracteres.";
+  }
+
+  if (!patronCorreo.test(correo)) {
+    return "Use un correo @outlook.com o @gmail.com.";
+  }
+
+  return "";
+}
 
 const errorNombreContacto =
   document.getElementById("error-nombre-contacto");
