@@ -35,6 +35,27 @@ const productos = [
     descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
     precio: 28000,
     imagen: "assets/img/5.png"
+  },
+  {
+    id: 6,
+    nombre: "Plan alimentación vegetariana/vegana",
+    descripcion: "Diseñado para garantizar aporte adecuado de proteínas, hierro, vitamina B12 y calcio sin productos animales.",
+    precio: 68000,
+    imagen: "assets/img/12.png"
+  },
+  {
+    id: 7,
+    nombre: "Taller de alimentación saludable",
+    descripcion: "Máx. 10 personas. Conceptos básicos de alimentación equilibrada y lectura de etiquetas [90 min].",
+    precio: 15000,
+    imagen: "assets/img/16.png"
+  },
+  {
+    id: 8,
+    nombre: "Taller de cocina nutritiva",
+    descripcion: "Preparación de recetas saludables. Incluye degustación. Máx. 8 personas [120 min].",
+    precio: 20000,
+    imagen: "assets/img/15.png"
   }
 ];
 
