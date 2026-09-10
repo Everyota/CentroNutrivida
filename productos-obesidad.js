@@ -20,22 +20,65 @@ const productos = [
     nombre: "Control nutricional quincenal",
     descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
     precio: 22000,
-    imagen: "assets/img/3.png"
+    imagen: "assets/img/4.png"
   },
    {
     id: 4,
     nombre: "Teleconsulta nutricional",
     descripcion: "Consulta de seguimiento vía videollamada. Requiere contar con consulta presencial previa [30 min].",
     precio: 20000,
-    imagen: "assets/img/4.png"
+    imagen: "assets/img/6.png"
   },
     {
     id: 5,
     nombre: "Consulta de urgencia / reagendada",
     descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
     precio: 28000,
-    imagen: "assets/img/5.png"
+    imagen: "assets/img/3.png"
+  },
+  {
+    id: 6,
+    nombre: "Plan pérdida de peso (1 mes)",
+    descripcion: "Incluye primera consulta + 1 control quincenal + plan alimenticio personalizado + seguimiento por WhatsApp.",
+    precio: 65000,
+    imagen: "assets/img/100.png"
+  },
+   {
+    id: 7,
+    nombre: "Plan pérdida de peso (3 meses)",
+    descripcion: "Incluye primera consulta + 5 controles + 3 planes mensuales + seguimiento continuo",
+    precio: 170000,
+    imagen: "assets/img/100.png"
+  },
+   {
+    id: 8,
+    nombre: "Plan control diabetes /hipertensión ",
+    descripcion: "Plan adaptado para patologías metabólicas. Coordinación con médico tratante si aplica.",
+    precio: 75000,
+    imagen: "assets/img/7.png"
+  },
+     {
+    id: 9,
+    nombre: "Antropometría completa",
+    descripcion: "Peso, talla, IMC, circunferencia de cintura, cadera, brazo y % de grasa corporal con bioimpedanciometría",
+    precio: 18000,
+    imagen: "assets/img/10.png"
+  },
+  {
+    id: 10,
+    nombre: "Biopedanciometría",
+    descripcion: "Medición de composición corporal: masa grasa, masa muscular, agua corporal y edad metabólica",
+    precio: 12000,
+    imagen: "assets/img/11.png"
+  },
+   {
+    id: 11,
+    nombre: "Análisis de laboratorio",
+    descripcion: "Interpretación de hemograma, perfil bioquímico y lipídico en contexto nutricional",
+    precio: 15000,
+    imagen: "assets/img/13.png"
   }
+  
   
 ];
 
