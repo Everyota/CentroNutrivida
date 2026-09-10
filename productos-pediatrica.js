@@ -2,39 +2,32 @@
 const productos = [
    {
     id: 1,
-    nombre: "Primera consulta nutricional",
-    descripcion: "Evaluación inicial: anamnesis, antropometría completa y diseño del primer plan alimenticio [50 min].",
-    precio: 35000,
+    nombre: "Plan alimentación infantil (2-12 años)",
+    descripcion: "Evaluación nutricional pediátrica y diseño de plan adaptado a la etapa de desarrollo del niño.",
+    precio: 65000,
     imagen: "assets/img/1.png"
   },
   {
      
     id: 2,
-    nombre: "Control nutricional (seguimiento)",
-    descripcion: "Seguimiento mensual: medición de indicadores y ajuste del plan vigente [30 min].",
-    precio: 25000,
+    nombre: "Bioimpedanciometría",
+    descripcion: "Medición de composición corporal: masa grasa, masa muscular, agua corporal y edad metabólica.",
+    precio: 12000,
     imagen: "assets/img/2.png"
   },
   {
     id: 3,
-    nombre: "Control nutricional quincenal",
-    descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
-    precio: 22000,
+    nombre: "Encuesta de hábitos alimentarios",
+    descripcion: "Análisis del patrón alimentario actual. Identificación de déficit y excesos nutricionales.",
+    precio: 10000,
     imagen: "assets/img/3.png"
   },
    {
     id: 4,
-    nombre: "Teleconsulta nutricional",
-    descripcion: "Consulta de seguimiento vía videollamada. Requiere contar con consulta presencial previa [30 min].",
-    precio: 20000,
+    nombre: "Análisis de exámenes de laboratorio",
+    descripcion: "Interpretación de hemograma, perfil bioquímico y lipídico en contexto nutricional.",
+    precio: 15000,
     imagen: "assets/img/4.png"
-  },
-    {
-    id: 5,
-    nombre: "Consulta de urgencia / reagendada",
-    descripcion: "Para pacientes que requieren atención fuera de su control habitual [30 min].",
-    precio: 28000,
-    imagen: "assets/img/5.png"
   }
 ];
 
